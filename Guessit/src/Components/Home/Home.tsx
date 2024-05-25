@@ -3,7 +3,7 @@ import { NewQuestion } from "../New Question/NewQuestion"
 import Style from './Home.module.css';
 import axios from 'axios';
 import { QuestionCard } from "../Question card/QuestionCard";
-import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 
 export const Home = () =>
 {
@@ -14,6 +14,9 @@ export const Home = () =>
             id: '',
             text: ''
         } ] );
+    const [ admin, setAdmin ] = useState( false );
+    const [ click, setClick ] = useState( false );
+    const location = useLocation();
 
     useEffect( () =>
     {
@@ -25,9 +28,41 @@ export const Home = () =>
         .catch( (error) =>
         {
             console.log(error);
-            
         })
     }, []);
+
+    useEffect( () =>
+    {
+        const buscarQuery = new URLSearchParams( location.search );
+        setAdmin( buscarQuery.get( 'admin' )==null ? false : true );
+    }, [])
+
+    const deleteQuestion = ( id: String ) =>
+        {
+            axios.delete(`http://localhost:3000/questions?id=${id}`)
+            .then( ({data}) =>
+            {
+                console.log(data);
+            })
+            .catch( ( error ) =>
+            {
+                console.log( error );            
+            });
+            setClick(!click);
+        }
+        
+        useEffect( () =>
+            {
+                axios.get('http://localhost:3000/questions')
+                .then( ({ data }) =>
+                {
+                    setAllQuestions( data );
+                } )
+                .catch( (error) =>
+                {
+                    console.log(error); 
+                })
+            }, [click]);
 
     return(
         <div className={ Style.general }>
@@ -35,9 +70,12 @@ export const Home = () =>
             <NewQuestion/>
 
             { allQuestions.map( (info, y) =>
-            <Link to={`/${info.id}`}>
-                <QuestionCard info={info} pos={y}/> 
-            </Link> ) }
+            <div>
+                <hr/>
+                {admin && <button onClick={()=> {deleteQuestion(info.id)} }> x </button>}
+                <hr/>
+                <QuestionCard info={info} pos={y} />
+            </div> ) }
 
         </div>
     )
