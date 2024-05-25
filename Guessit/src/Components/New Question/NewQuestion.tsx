@@ -1,21 +1,52 @@
+import { useState } from 'preact/hooks';
 import Style from './NewQuestion.module.css';
+import axios from 'axios';
 
 export const NewQuestion = () =>
 {
-    const handleSubmit = () =>
-    {
+    const [ text, setText ] = useState( '' );
+    const [ selectedOption, setSelectedOption ] = useState( '' );
+    const categories = [ 'Otros', 'Politica', 'Salud', 'Deportes', 'Vida diaria', 'Amor', 'Educación' ];
 
+    const handleSubmit = (e: any) =>
+    {
+        if( text!='' && selectedOption!='' )
+        {
+            axios.post('http://localhost:3000/questions', { text, category: selectedOption } )
+            .then( ( { data } ) => console.log( data ) )
+            .catch( ( error ) => console.log( error ) );
+            setSelectedOption( '' );
+            setText( '' );
+        }
+        else
+        {
+            e.preventDefault();
+            alert('Faltan datos');
+        }
+        
     }
+
+    const handleChange = (event: any) => {
+        setSelectedOption(event.target.value);
+      };
 
     return(
     <div className={ Style.general }>
         <div className={ Style.formulario }>
-            <form onSubmit={ handleSubmit }>
-                <h3> Tu pregunta: </h3>
+
+            <label> Tu pregunta: </label>
+            <select value={selectedOption} onChange={handleChange}>
+                { categories.map( cat => <option value={cat}> {cat} </option> )}
+            </select>
+
+            <form onSubmit={handleSubmit}>
                 <div className={ Style.texto }>
-                    <input class={ Style.input } type='text'/>
+                    <input class={ Style.input } type='text'
+                    onChange={(e)=> setText(e.target.value)} value={text}/>
                 </div>
+                <button className={ Style.boton }> ✔ </button>
             </form>
+
         </div>
     </div>
     )

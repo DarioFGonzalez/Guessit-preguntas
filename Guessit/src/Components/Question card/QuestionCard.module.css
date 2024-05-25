@@ -1,0 +1,13 @@
+.generalLeft
+{
+    height: 90px;
+    width: 315px;
+    background-color: rgb(160, 149, 88);
+}
+
+.generalRight
+{
+    height: 90px;
+    width: 315px;
+    background-color: rgb(128, 255, 255);
+}

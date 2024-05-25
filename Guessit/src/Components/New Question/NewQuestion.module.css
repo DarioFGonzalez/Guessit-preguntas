@@ -1,22 +1,17 @@
 .formulario
 {
-    background-color: #ec80d5e0;
+    background-color: #ec80d4;
     height: 150px;
     width: 350px;
 }
 
 .general
 {
-    position: sticky;
-    top: 0;
     padding-top: 1px;
 }
 
 .texto
 {
-    position: relative;
-    top: 70%;
-    left: 5%;
     height: 90px;
     width: 315px;
     background-color: rgba(128, 255, 255, 0.671);
@@ -29,4 +24,11 @@
     width: 300px;
     caret-color: transparent;
     text-align: start;
+}
+
+.boton
+{
+    background-color: #5cf038e0;
+    height: 30px;
+    width: 5px;
 }
