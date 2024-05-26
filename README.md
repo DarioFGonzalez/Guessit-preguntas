@@ -28,3 +28,7 @@ https://github.com/DarioFGonzalez/Guessit-preguntas/commit/87a957957498d0f61a6c4
 > Tercer commit: Botones para borrar pregunta, borrar respuesta para el admin agregados
 > 
 https://github.com/DarioFGonzalez/Guessit-preguntas/commit/4f384697431a2b1a183d3b019b293b58d278f3ca#commitcomment-142396298
+
+> Cuarto commit: Added: Categorias, colores. Feat: Corregir problemas de semántica en TypeScript
+>
+https://github.com/DarioFGonzalez/Guessit-preguntas/commit/2838c4d5aa48acd5b9ca318f1312793a4d5a29aa#commitcomment-142409087
