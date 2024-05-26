@@ -30,6 +30,11 @@ export const NewQuestion = () =>
         setSelectedOption(event.target.value);
       };
 
+    const writeText = (event: any) =>
+    {
+        setText(event.target.value);
+    }
+
     return(
     <div className={ Style.general }>
         <div className={ Style.formulario }>
@@ -42,7 +47,7 @@ export const NewQuestion = () =>
             <form onSubmit={handleSubmit}>
                 <div className={ Style.texto }>
                     <input class={ Style.input } type='text'
-                    onChange={(e)=> setText(e.target.value)} value={text}/>
+                    onChange={ writeText } value={text}/>
                 </div>
                 <button className={ Style.boton }> ✔ </button>
             </form>

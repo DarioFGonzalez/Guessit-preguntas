@@ -17,24 +17,37 @@ export const Home = () =>
     const [ admin, setAdmin ] = useState( false );
     const [ click, setClick ] = useState( false );
     const location = useLocation();
+    const buscarQuery = new URLSearchParams( location.search );
+    let categoria = buscarQuery.get( 'category' );
 
     useEffect( () =>
     {
-        axios.get('http://localhost:3000/questions')
-        .then( ({ data }) =>
-        {
-            setAllQuestions( data );
-        } )
-        .catch( (error) =>
-        {
-            console.log(error);
-        })
-    }, []);
-
-    useEffect( () =>
-    {
-        const buscarQuery = new URLSearchParams( location.search );
         setAdmin( buscarQuery.get( 'admin' )==null ? false : true );
+        
+        if(categoria)
+        {
+            axios.get(`http://localhost:3000/questions?category=${categoria}`)
+            .then( ({ data }) =>
+            {
+                setAllQuestions( data );
+            } )
+            .catch( (error) =>
+            {
+                console.log(error);
+            })
+        }
+        else
+        {
+            axios.get('http://localhost:3000/questions')
+            .then( ({ data }) =>
+            {
+                setAllQuestions( data );
+            } )
+            .catch( (error) =>
+            {
+                console.log(error);
+            })
+        }
     }, [])
 
     const deleteQuestion = ( id: String ) =>
@@ -50,31 +63,50 @@ export const Home = () =>
             });
             setClick(!click);
         }
-        
+    
         useEffect( () =>
             {
-                axios.get('http://localhost:3000/questions')
-                .then( ({ data }) =>
+                const buscarQuery = new URLSearchParams( location.search );
+                setAdmin( buscarQuery.get( 'admin' )==null ? false : true );
+                let categoria = buscarQuery.get( 'category' );
+                
+                if(categoria)
                 {
-                    setAllQuestions( data );
-                } )
-                .catch( (error) =>
+                    axios.get(`http://localhost:3000/questions?category=${categoria}`)
+                    .then( ({ data }) =>
+                    {
+                        setAllQuestions( data );
+                    } )
+                    .catch( (error) =>
+                    {
+                        console.log(error);
+                    })
+                }
+                else
                 {
-                    console.log(error); 
-                })
-            }, [click]);
+                    axios.get('http://localhost:3000/questions')
+                    .then( ({ data }) =>
+                    {
+                        setAllQuestions( data );
+                    } )
+                    .catch( (error) =>
+                    {
+                        console.log(error);
+                    })
+                }
+            }, [click, categoria])
 
     return(
         <div className={ Style.general }>
 
             <NewQuestion/>
 
-            { allQuestions.map( (info, y) =>
+            { allQuestions.map( (info) =>
             <div>
                 <hr/>
-                {admin && <button onClick={()=> {deleteQuestion(info.id)} }> x </button>}
+                {admin && <button onClick={()=> {deleteQuestion(info.id)} }> ↓ Borrar esta pregunta ↓ </button>}
                 <hr/>
-                <QuestionCard info={info} pos={y} />
+                <QuestionCard info={info} />
             </div> ) }
 
         </div>

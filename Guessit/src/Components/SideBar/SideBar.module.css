@@ -1,15 +1,6 @@
-.generalLeft
+.sideBar
 {
-    height: 90px;
-    width: 315px;
-    background-color: rgb(109, 236, 109);
-}
-
-.generalRight
-{
-    height: 90px;
-    width: 315px;
-    background-color: rgb(128, 255, 255);
+    flex-flow: column;
 }
 
 .amor
@@ -46,4 +37,3 @@
 {
     background-color: rgb(115, 241, 104);
 }
-
