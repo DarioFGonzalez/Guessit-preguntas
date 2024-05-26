@@ -17,7 +17,7 @@ Por ejemplo: Cualqueira puede logearse como admin, preguntas spam, filtros de le
 
 Cada **commit** del proyecto será acompañado por un comentario explicativo de mi parte y un cambio en este archivo guiándo a dicho comentario para mantener actualizado del progreso al proyecto.
 
-> Primer commit: First commit, back-end working, front-end just presented
+> Primer commit: Primer commit, back-end funcional, front-end presentado (no funcional).
 > 
 https://github.com/DarioFGonzalez/Guessit-preguntas/commit/d15c7827b2babc0f6482387e73342dbcc8d951b2#commitcomment-142326407
 
