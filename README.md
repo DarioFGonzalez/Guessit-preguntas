@@ -1,39 +1,30 @@
-# Aplicación de preguntas anónimas
+**¿De donde sale GuessIt APP?**
 
-![01](./assets/01.png)
+Es uno de los proyectos _take-home_ creados por Goncy con el fin de agrandar nuestro porfolio con proyectos que demuestren nuestras habilidades como web developers. Pueden encontrar estos proyectos en el repositorio de Goncy: (https://github.com/goncy/interview-challenges/tree/main/proyectos-take-home)
 
-Este proyecto tiene 4 milestones o entregas, no es necesario que cumplas todas para dar el proyecto por terminado, ajustalo a tus necesidades y conocimientos. Cada entrega se vuelve un poco más difícil.
+![image](https://github.com/DarioFGonzalez/Guessit-preguntas/assets/135393251/73dfff67-f973-4fa8-955d-850be7680cc3)
 
-Intentá que cada entrega tenga calidad de producto final, antes de continuar a la próxima entrega, refactorizá tu código, comentalo o lo que consideres que sea correcto previo a entregarlo a un cliente.
+**GuessIt APP**
 
-## Entrega 1
-Nuestro equipo de diseño nos dijo que quería una aplicación con una interfáz similar a [NGL](https://ngl.link/) y nos dió como referencia la imágen de arriba. A diferencia de NGL, esta es una aplicación de preguntas anónimas donde todas las preguntas llegan al muro principal, no hay un administrador que las contesta, modera o elimina, sino que cualquier persona puede copiar esa pregunta y responderla en sus propias redes.
+Página de preguntas y respuestas anónimas. Cuenta con una página principal donde podemos ver todas las preguntas que hicieron los usuarios de forma anónima. 
+Podemos clickear en las preguntas para entrar al *"post"* de la misma y ver las respuestas que hicieron otros usuarios (anonimamente) o también dejar nuestra propia respuesta.
 
-El cliente nos dió esta aplicación con Next.js + App router y Tailwind CSS configurado, pero nos dijo que podemos usar las tecnologías que queramos para el proyecto. Los requerimientos son:
+``Limitaciones:``
+Estoy creando GuessIt APP siguiendo las indicaciones del proyecto _take-home_. Tengo pensado cumplir con las entregas que pide _estrictamente_ el enunciado y DESPUÉS centrarme en fallas de seguridad, permisos y vulnerabilidades del proyecto en general.
+Por ejemplo: Cualqueira puede logearse como admin, preguntas spam, filtros de lenguaje, ataques, etc...
 
-- Debe haber un formulario en la parte superior para que los usuarios envien preguntas
-- Las preguntas nuevas deberían persistir al refrescar la página
-- Deberíamos ver las preguntas de otros usuarios además de las nuestras
+**Log de cambios**
 
-## Entrega 2
-Sumado a lo presentado en la entrega 1:
+Cada **commit** del proyecto será acompañado por un comentario explicativo de mi parte y un cambio en este archivo guiándo a dicho comentario para mantener actualizado del progreso al proyecto.
 
-- Deberíamos tener una ruta para cada pregunta que nos muestre solo su contenido y un botón para volver al inicio
-- Al compartir esta ruta en redes sociales, deberiamos mostrar una imágen de open-graph que incluya el texto de la pregunta
-- Deberíamos tener un botón en la ruta de cada pregunta que nos permita copiar una imágen de la pregunta al portapapeles
+> Primer commit: First commit, back-end working, front-end just presented
+> 
+https://github.com/DarioFGonzalez/Guessit-preguntas/commit/d15c7827b2babc0f6482387e73342dbcc8d951b2#commitcomment-142326407
 
-## Entrega 3
-Sumado a lo presentado en la entrega 2:
+> Segundo commit: Front end avanzado, esqueleto funcional
+> 
+https://github.com/DarioFGonzalez/Guessit-preguntas/commit/87a957957498d0f61a6c4ee3d0663d6a25fc653d#commitcomment-142387949
 
-- Deberíamos tener una ruta `/admin` a la cual podemos acceder y nos permita borrar preguntas
-- Al estar en la ruta `/admin` y clickear una pregunta podemos contestarla y aparecerá la respuesta debajo de la pregunta
-
-## Entrega 4
-Sumado a lo presentado en la entrega 3:
-
-- Podemos acceder a diferentes "canales" y cada canal tiene sus propias preguntas. Por ej: entrar a `/politica` tiene unas preguntas y `/mascotas` tiene sus propias preguntas
-- Cada canal tiene su propia ruta de administración `/politica/admin` y `/mascotas/admin`
-
----
-
-Podés clonarlo o usarlo directamentes desde [CodeSandbox](https://codesandbox.io/s/github/goncy/interview-challenges/tree/main/proyectos-take-home/preguntas-anonimas). Una vez que termines alguna de las entregas, compartilo en el canal #feedback del [Discord](https://discord.goncy.dev) para obtener feedback y etiquetame en [Twitter](https://twitter.gonzalopozzo.com) y [LinkedIn](https://linkedin.gonzalopozzo.com) cuando lo compartas así lo re-comparto y obtiene más visibilidad.
+> Tercer commit: Botones para borrar pregunta, borrar respuesta para el admin agregados
+> 
+https://github.com/DarioFGonzalez/Guessit-preguntas/commit/4f384697431a2b1a183d3b019b293b58d278f3ca#commitcomment-142396298
