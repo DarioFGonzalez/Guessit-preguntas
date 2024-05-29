@@ -2,7 +2,7 @@ const { Sequelize } = require('sequelize');
 const questionModel = require('./Models/Question.js');
 const answerModel = require('./Models/Answer.js');
 
-const sequelize = new Sequelize(`postgres://postgres:1Nnercia@localhost:5432/anonymask`, { logging: false, native: false })
+const sequelize = new Sequelize(`postgres://postgres:admin@localhost:5432/anonymask`, { logging: false, native: false })
 
 sequelize.authenticate()
 .then(() =>
