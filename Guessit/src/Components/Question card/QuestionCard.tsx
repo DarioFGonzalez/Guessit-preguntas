@@ -48,9 +48,9 @@ export const QuestionCard = ( { info }: { info: Info } ) =>
     }
 
     return(
-        <div>
+        <div className='rounded-sm'>
             <Link to={`/${info.id}`}>
-                <div className={ estilo(info.category) }>
+                <div className={` rounded-[20px] border-[1px] text-black border-black p-3 ${estilo(info.category)}`}>
                     <p> Categoría: { info.category } </p>
                     <h3> {info.text} </h3>
                 </div>

@@ -1,9 +1,9 @@
 import { useEffect, useState } from "preact/hooks";
 import { NewQuestion } from "../New Question/NewQuestion"
-import Style from './Home.module.css';
 import axios from 'axios';
 import { QuestionCard } from "../Question card/QuestionCard";
 import { useLocation } from "react-router-dom";
+import { SideBar } from "../SideBar/SideBar";
 
 export const Home = () =>
 {
@@ -96,19 +96,37 @@ export const Home = () =>
                 }
             }, [click, categoria])
 
-    return(
-        <div className={ Style.general }>
+    return (
+      <div className=" w-full h-full flex flex-col max-w-[1280px]  justify-center gap-[70px]">
+            <div className='grid grid-cols-4 gap-[100px]'>
+                <div className='col-start-2 col-end-5'>
+                    <NewQuestion />
+                </div>
+            </div> 
 
-            <NewQuestion/>
-
-            { allQuestions.map( (info) =>
+        <div className='grid grid-cols-4 gap-[100px] '>
             <div>
-                <hr/>
-                {admin && <button onClick={()=> {deleteQuestion(info.id)} }> ↓ Borrar esta pregunta ↓ </button>}
-                <hr/>
-                <QuestionCard info={info} />
-            </div> ) }
+                <SideBar />
+            </div>
 
+            <div className="col-start-2 col-end-5 grid grid-cols-3 items-start  h-fit gap-[20px]">
+            {allQuestions.map((info) => (
+                <div>
+                {admin && (
+                    <button
+                    onClick={() => {
+                        deleteQuestion(info.id);
+                    }}
+                    >
+                    {" "}
+                    ↓ Borrar esta pregunta ↓{" "}
+                    </button>
+                )}
+                <QuestionCard info={info} />
+                </div>
+            ))}
+            </div>
         </div>
-    )
+      </div>
+    );
 }

@@ -1,71 +1,33 @@
 import { Link } from 'react-router-dom';
-import Style from './SideBar.module.css';
 
 export const SideBar = () =>
 {
-
-    const estilo = ( categoria: String ) =>
-        {
-            switch(categoria)
-            {
-                case 'Amor':
-                    {
-                        return Style.amor;
-                    }
-                case 'Vida diaria':
-                    {
-                        return Style.vidaDiaria;
-                    }
-                case 'Salud':
-                    {
-                        return Style.salud;
-                    }
-                case 'Politica':
-                    {
-                        return Style.politica;
-                    }
-                case 'Educación':
-                    {
-                        return Style.educacion;
-                    }
-                case 'Deportes':
-                    {
-                        return Style.deportes;
-                    }
-                case 'Otros':
-                    {
-                        return Style.otros;
-                    }
-                
-            }
-        }
-
     return(
-        <div className={ Style.SideBar }>
-            <h3> Categorías </h3>
+        <div className='flex flex-col gap-[10px] min-w-[140px]'>
+            <h3 className=' border-b-[3px] text-[30px] mb-[20px] font-bold text-center'> Categorías </h3>
             <Link to='/home'>
-                ♫  TODAS ♪
+                <button className=' bg-slate-900 rounded-[10px] h-[40px] w-full'> Todas </button>
             </Link>
             <Link to='/home?category=Vida%20diaria'>
-                <button className={ estilo("Vida diaria") }> Vida diaria </button>
+                <button className=' bg-red-700 rounded-[10px] h-[40px] w-full'> Vida diaria </button>
             </Link>
             <Link to='/home?category=Salud'>
-                <button className={ estilo("Salud") }> Salud </button>
+                <button className=' bg-orange-700 rounded-[10px] h-[40px] w-full'> Salud </button>
             </Link>
             <Link to='/home?category=Politica'>
-                <button className={ estilo("Politica") }> Politica </button>
+                <button className=' bg-yellow-500 rounded-[10px] h-[40px] w-full'> Politica </button>
             </Link>
             <Link to='/home?category=Amor'>
-                <button className={ estilo("Amor") }> Amor </button>
+                <button className=' bg-green-700 rounded-[10px] h-[40px] w-full'> Amor </button>
             </Link>
             <Link to='/home?category=Educación'>
-                <button className={ estilo("Educación") }> Educación </button>
+                <button className=' bg-sky-700 rounded-[10px] h-[40px] w-full'> Educación </button>
             </Link>
             <Link to='/home?category=Deportes'>
-                <button className={ estilo("Deportes") }> Deportes </button>
+                <button className=' bg-blue-800 rounded-[10px] h-[40px] w-full'> Deportes </button>
             </Link>
             <Link to='/home?category=Otros'>
-                <button className={ estilo("Otros") }> Otros </button>
+                <button className=' bg-violet-900 rounded-[10px] h-[40px] w-full'> Otros </button>
             </Link>
         </div>
     )
