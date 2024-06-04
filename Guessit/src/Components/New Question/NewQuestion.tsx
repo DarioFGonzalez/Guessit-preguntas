@@ -1,4 +1,5 @@
 import { useState } from 'preact/hooks';
+import Styles from './NewQuestion.module.css'
 import axios from 'axios';
 
 export const NewQuestion = () =>
@@ -35,7 +36,7 @@ export const NewQuestion = () =>
     }
 
     return(
-        <div className=' text-black rounded-[5px] w-auto'>
+        <div className=' text-black rounded-[5px] w-auto mb-[70px]'>
             <div className='bg-white px-5 py-2 rounded-t-[20px]'>
                 <select className='text-black outline-none border-b-[1px] border-b-black' value={selectedOption} onChange={handleChange}>
                     <option value="" selected>Seleccionar Categoría</option>
@@ -47,7 +48,7 @@ export const NewQuestion = () =>
                     <input class='w-full h-full rounded-b-[20px] bg-white bg-opacity-30 placeholder-black placeholder-opacity-50 text-black outline-none p-5' type='text' placeholder={"Escribe tu pregunta..."}
                     onChange={ writeText } value={text}/>
                 </div>
-                <button className=' bg-black w-full text-white p-1 h-[50px] rounded-[25px]'> Publicar </button>
+                <button className={Styles.botonPublicar}> Publicar </button>
             </form>
 
         </div>

@@ -109,7 +109,7 @@ export const Home = () =>
                 <SideBar />
             </div>
 
-            <div className="col-start-2 col-end-5 grid grid-cols-3 items-start  h-fit gap-[20px]">
+            <div className="col-start-2 col-end-5 flex flex-col h-fit gap-[20px]">
             {allQuestions.map((info) => (
                 <div>
                 {admin && (

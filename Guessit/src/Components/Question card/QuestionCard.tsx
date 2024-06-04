@@ -48,11 +48,15 @@ export const QuestionCard = ( { info }: { info: Info } ) =>
     }
 
     return(
-        <div className='rounded-sm'>
+        <div>
             <Link to={`/${info.id}`}>
-                <div className={` rounded-[20px] border-[1px] text-black border-black p-3 ${estilo(info.category)}`}>
-                    <p> Categoría: { info.category } </p>
-                    <h3> {info.text} </h3>
+                <div className='grid grid-rows-3 rounded-[10px] text-black'>
+                    <div className={`p-3 row-span-1 rounded-t-[10px] text-center ${estilo(info.category)}`}>
+                        <p>{ info.category } </p>
+                    </div>
+                    <div className={`flex flex-col justify-center p-3 row-span-2 rounded-b-[10px] text-white text-center  bg-black bg-opacity-30`}>
+                        <h3> {info.text} </h3>
+                    </div>
                 </div>
             </Link>
         </div>
