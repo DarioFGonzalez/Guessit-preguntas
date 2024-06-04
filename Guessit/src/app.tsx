@@ -3,14 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 import { Home } from './Components/Home/Home';
 import { Landing } from './Components/Landing/Landing'
 import { QuestionDetails } from './Components/Question details/QuestionDetail';
-import { SideBar } from './Components/SideBar/SideBar';
 
 function App()
 {
 
   return (
-    <div>
-      <SideBar />
+    <div className='flex flex-row gap-[20px] bg-gradient-to-br from-pink-600 from-20% to-orange-500 to-80% justify-center items-center h-[100vh] align-middle'>
       <Routes>
         <Route path="/" element={ <Landing /> } />
         <Route path="/home" element={ <Home /> } />
