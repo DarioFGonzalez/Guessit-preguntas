@@ -70,25 +70,30 @@ export const QuestionDetails = () =>
         }, [borrarPregunta])
 
     return(
-    <div className={ Style.texto }>
-        <Link to='/home'>
-            <button> {'<'} </button>
+    <div className='flex flex-col gap-[20px] w-full max-w-[1280px] '>
+        <Link className='mb-[70px]' to='/home'>
+            <button className='bg-black h-[40px] rounded-[10px] hover:scale-110 duration-300 min-w-[70px]'> {'< Atrás'} </button>
         </Link>
-        <p> Categoría: { question.category } </p>
-        <h3> {question.text} </h3>
-        <hr/>
-        <p> Respuestas: </p>
-        <hr/> ------------------------------------------------------------------- <hr/>
-        {question.Answers.length>0?question.Answers.map( x =>
-        <div>
-            {admin && <label onClick={()=>borrarPregunta( x.id )}> {"("}borrar pregunta{")"} </label>}
-            <p> {x.text} </p>
-            <hr/>
-        </div>):<p> Sin respuestas </p>}
-        <form onSubmit={handleSubmit}>
-            <input style={ { height: 35 } } onChange={(e) => setText(e.target.value)} value={text}/>
-            {text=='' && <button disabled> Escribe algo 😉 </button>}
-            {text!='' && <button > Responder! </button>}
+        <div className='flex flex-col text-center mb-[70px]'>
+            <p className='w-full bg-black bg-opacity-0 p-3 border-b border-white rounded-t-[10px]'>{ question.category } </p>
+            <h3 className='w-full text-black font-bold bg-black bg-opacity-0 p-3 h-[90px] rounded-b-[10px] flex justify-center items-center'> {question.text} </h3>
+        </div>
+
+        <div className='flex items-center mb-[35px]'>
+            <p className='font-bold'> Respuestas </p>
+        </div>
+
+        <div className='mb-[70px] flex flex-col gap-2'>
+            {question.Answers.length>0?question.Answers.map( x =>
+            <div >
+                {admin && <label onClick={()=>borrarPregunta( x.id )}> {"("}borrar pregunta{")"} </label>}
+                <p className='bg-black bg-opacity-70 px-1 py-[2px]'> {x.text} </p>
+            </div>):<p className='flex items-center'> Aún no hay respuestas... </p>}
+        </div>
+
+        <form className='flex flex-col gap-[10px]' onSubmit={handleSubmit}>
+                <input className='text-black w-full h-[90px] outline-none rounded-[10px] p-5' placeholder={'Escribe algo 😉'} onChange={(e: any) => setText(e.target.value)} value={text}/>
+                {text!='' && <button className='w-full bg-black p-3 rounded-[10px] hover:scale-105 duration-300' > Responder! </button>}
         </form>
     </div>
     )

@@ -37,12 +37,14 @@ export const NewQuestion = () =>
 
     return(
         <div className=' text-black rounded-[5px] w-auto mb-[70px]'>
+            
             <div className='bg-white px-5 py-2 rounded-t-[20px]'>
                 <select className='text-black outline-none border-b-[1px] border-b-black' value={selectedOption} onChange={handleChange}>
                     <option value="" selected>Seleccionar Categoría</option>
                     { categories.map( cat => <option value={cat}> {cat} </option> )}
                 </select>
             </div>
+
             <form onSubmit={handleSubmit} className='flex flex-col gap-[10px]'>
                 <div className='h-[90px] min-w-[315px]'>
                     <input class='w-full h-full rounded-b-[20px] bg-white bg-opacity-30 placeholder-black placeholder-opacity-50 text-black outline-none p-5' type='text' placeholder={"Escribe tu pregunta..."}
