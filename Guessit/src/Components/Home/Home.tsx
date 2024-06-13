@@ -97,7 +97,7 @@ export const Home = () =>
             }, [click, categoria])
 
     return (
-      <div className=" w-full h-full flex flex-col max-w-[1280px]  justify-center gap-[70px]">
+      <div className=" w-full bg- h-full flex flex-col max-w-[80%] justify-center gap-[70px]">
             <div className='grid grid-cols-4 gap-[100px]'>
                 <div className='col-start-2 col-end-5'>
                     <NewQuestion />
@@ -126,6 +126,7 @@ export const Home = () =>
                 </div>
             ))}
             </div>
+            
         </div>
       </div>
     );

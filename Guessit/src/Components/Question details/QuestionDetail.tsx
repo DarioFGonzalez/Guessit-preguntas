@@ -74,9 +74,11 @@ export const QuestionDetails = () =>
         <Link className='mb-[70px]' to='/home'>
             <button className='bg-black h-[40px] rounded-[10px] hover:scale-110 duration-300 min-w-[70px]'> {'< Atrás'} </button>
         </Link>
-        <div className='flex flex-col text-center mb-[70px]'>
-            <p className='w-full bg-black bg-opacity-0 p-3 border-b border-white rounded-t-[10px]'>{ question.category } </p>
-            <h3 className='w-full text-black font-bold bg-black bg-opacity-0 p-3 h-[90px] rounded-b-[10px] flex justify-center items-center'> {question.text} </h3>
+        <div className='flex flex-col bg-black bg-opacity-30   text-center mb-[70px]'>
+            <p className='w-full p-3 rounded-t-[10px]'>{ question.category } </p>
+            <div className='p-5'>
+                <h3 className='w-full text-black font-bold bg-white  p-3 h-[90px] flex justify-center items-center'> {question.text} </h3>
+            </div>
         </div>
 
         <div className='flex items-center mb-[35px]'>
@@ -84,10 +86,10 @@ export const QuestionDetails = () =>
         </div>
 
         <div className='mb-[70px] flex flex-col gap-2'>
-            {question.Answers.length>0?question.Answers.map( x =>
-            <div >
+            {question.Answers.length > 0 ? question.Answers.map( (x, y) =>
+            <div className={y % 2 == 0 ? `flex flex-row justify-start bg-red px-1 py-[2px]` : `flex flex-row justify-end w-full px-1 py-[2px]`}>
                 {admin && <label onClick={()=>borrarPregunta( x.id )}> {"("}borrar pregunta{")"} </label>}
-                <p className='bg-black bg-opacity-70 px-1 py-[2px]'> {x.text} </p>
+                <p className='break-words bg-black bg-opacity-70 p-4 max-w-[600px] rounded-[30px]'> {x.text} </p>
             </div>):<p className='flex items-center'> Aún no hay respuestas... </p>}
         </div>
 
